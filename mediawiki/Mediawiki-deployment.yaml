@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Media-wiki
+  labels:
+    app: web
+  namespace: mediawiki
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers: 
+      - image: <aws_account_number>.dkr.ecr.us-east-1.amazonaws.com/mediawiki:latest
+        name: Mediawiki
+        imagePullPolicy: Always
+        resources:
+            requests:
+              cpu: 1000m
+              memory: 300Mi
+ 
+        ports:
+        - containerPort: 80

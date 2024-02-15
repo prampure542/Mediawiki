@@ -1,0 +1,9 @@
+aws eks update-kubeconfig --region us-weast-1 --name my-eks-cluster
+
+kubectl create namespace mediawiki
+
+kubectl apply -f Mediawiki-deployment.yaml
+
+kubectl apply -f Mediawiki-service.yaml
+
+#Initial setup connect with maria db    
